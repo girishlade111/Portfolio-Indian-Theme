@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Girish Lade - Developer, Designer, AI Innovator</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter & Tinos for a classic, readable serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Tinos:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* --- Custom Properties for Theming --- */
+        :root {
+            --bg-dark: #0c0c14; /* Deep Indigo Night */
+            --bg-card: #1a1a2e; /* Darker Indigo */
+            --text-light: #E0E0E0;
+            --text-muted: #a0a0c0;
+            --accent-gold: #FFD700;
+            --accent-saffron: #FF9933;
+            --accent-peacock: #16a085; /* Peacock Green/Blue */
+            --accent-glow: rgba(255, 215, 0, 0.4);
+            --peacock-glow: rgba(22, 160, 133, 0.4);
+        }
+
+        /* --- Base Styles --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            cursor: none; /* Hide default cursor */
+        }
+        
+        /* --- Animated Background --- */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 200%; height: 200%;
+            background-image: radial-gradient(circle at center, rgba(255, 215, 0, 0.05) 0%, rgba(255, 215, 0, 0) 20%),
+                              radial-gradient(circle at 20% 80%, rgba(22, 160, 133, 0.1) 0%, rgba(22, 160, 133, 0) 25%);
+            z-index: -2;
+            animation: bg-float 40s ease-in-out infinite;
+        }
+
+        @keyframes bg-float {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(10%, -5%); }
+            50% { transform: translate(-5%, 10%); }
+            75% { transform: translate(5%, -10%); }
+        }
+
+        /* --- Typography --- */
+        .font-heading { font-family: 'Tinos', serif; }
+        .section-title {
+            font-family: 'Tinos', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: var(--accent-gold);
+            text-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        /* --- Card Styles --- */
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid #2c2c4e;
+            border-radius: 0.75rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-peacock);
+            box-shadow: 0 0 25px var(--peacock-glow);
+        }
+        
+        /* Jharokha Style for specific cards */
+        .card.jharokha::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 10%;
+            width: 80%;
+            height: 100%;
+            background: var(--accent-peacock);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            filter: blur(20px);
+        }
+        .card.jharokha:hover::before {
+            opacity: 0.1;
+        }
+
+        /* --- Hero Mandala & Peacock Animation --- */
+        #hero-mandala {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 90vw; height: 90vw;
+            max-width: 700px; max-height: 700px;
+            transform: translate(-50%, -50%);
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23FFD700;" /><stop offset="100%" style="stop-color:%23FF9933;" /></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="3.5" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g filter="url(%23glow)" opacity="0.7"><circle cx="100" cy="100" r="90" fill="none" stroke="url(%23gold-gradient)" stroke-width="0.5"/><circle cx="100" cy="100" r="70" fill="none" stroke="var(--accent-peacock)" stroke-width="0.3"/><g transform="translate(100,100) scale(0.8)"><path d="M0-80 L56.57-56.57 L80-0 L56.57,56.57 L0,80 L-56.57,56.57 L-80,0 L-56.57-56.57Z" fill="none" stroke="%2316a085" stroke-width="0.4"/></g><g transform="translate(100,100) rotate(22.5) scale(0.6)"><path d="M0-70 A70,70 0 0,1 0,70 A70,70 0 0,1 0,-70" fill="none" stroke="%23FFD700" stroke-width="0.3"/></g></g></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0;
+            z-index: 0;
+            animation: spin-and-pulse 80s linear infinite, fade-in-hero 4s ease-out forwards;
+        }
+        #peacock-feather {
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 250px;
+            height: 250px;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="peacock-eye" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style="stop-color:%23000080;"/><stop offset="40%" style="stop-color:%234169E1;"/><stop offset="70%" style="stop-color:%2316a085;"/><stop offset="100%" style="stop-color:%23FFD700;"/></radialGradient></defs><path d="M50 100 C 20 90, 10 50, 50 0 C 90 50, 80 90, 50 100 Z" fill="%2316a085" opacity="0.8"/><circle cx="50" cy="35" r="15" fill="url(%23peacock-eye)"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            transform-origin: bottom right;
+            animation: sway 10s ease-in-out infinite;
+            filter: drop-shadow(0 0 15px var(--peacock-glow));
+            z-index: 1;
+        }
+
+        @keyframes spin-and-pulse { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
+        @keyframes fade-in-hero { from { opacity: 0; } to { opacity: 0.2; } }
+        @keyframes sway { 0%, 100% { transform: rotate(-15deg); } 50% { transform: rotate(5deg); } }
+
+        /* --- Rangoli Cursor --- */
+        #rangoli-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent-gold);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            transition: transform 0.2s ease-out;
+            z-index: 10000;
+        }
+        
+        /* --- Footer Lotus --- */
+        #footer-lotus { animation: bloom 5s ease-in-out infinite; }
+        @keyframes bloom { 0%, 100% { transform: scale(1); opacity: 0.7; } 50% { transform: scale(1.1); opacity: 1; } }
+
+        /* Other styles from previous version... */
+        .timeline { position: relative; max-width: 1200px; margin: 0 auto; }
+        .timeline::after { content: ''; position: absolute; width: 4px; background-color: var(--accent-peacock); top: 0; bottom: 0; left: 50%; margin-left: -2px; box-shadow: 0 0 10px var(--peacock-glow); }
+        .timeline-container { padding: 10px 40px; position: relative; background-color: inherit; width: 50%; }
+        .timeline-container.left { left: 0; }
+        .timeline-container.right { left: 50%; }
+        .timeline-container::after { content: ''; position: absolute; width: 20px; height: 20px; right: -10px; background-color: var(--accent-gold); border: 4px solid var(--accent-peacock); top: 15px; border-radius: 50%; z-index: 1; box-shadow: 0 0 15px var(--accent-glow); }
+        .right::after { left: -10px; }
+        .timeline-content { padding: 20px 30px; background-color: var(--bg-card); position: relative; border-radius: 8px; border: 1px solid #2c2c4e; }
+        .section-divider { height: 80px; width: 100%; text-align: center; margin-bottom: 2rem; }
+        .section-divider svg { height: 100%; filter: drop-shadow(0 0 10px var(--peacock-glow)); }
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 1s ease, transform 1s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .tag { background-color: #2c2c4e; color: var(--accent-saffron); padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 500; border: 1px solid #4a4a6e; }
+        .glow-button { background: linear-gradient(45deg, var(--accent-peacock), #1abc9c); color: #fff; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 0 15px var(--peacock-glow); }
+        .glow-button:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--peacock-glow); }
+        .social-icon:hover { color: var(--accent-gold); transform: scale(1.2); text-shadow: 0 0 15px var(--accent-glow); }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="custom-cursor"></div>
+    <canvas id="rangoli-canvas"></canvas>
+
+    <!-- Header -->
+    <header class="bg-black/70 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 border-b border-gray-800/50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-2xl font-heading font-bold text-white hover:text-amber-300 transition-colors" style="text-shadow: 0 0 5px var(--accent-glow);">Girish Lade</a>
+                <nav class="hidden md:flex space-x-8 text-lg">
+                    <a href="#journey" class="hover:text-amber-300 transition-colors">Journey</a>
+                    <a href="#projects" class="hover:text-amber-300 transition-colors">Projects</a>
+                    <a href="#skills" class="hover:text-amber-300 transition-colors">Skills</a>
+                    <a href="#github" class="hover:text-amber-300 transition-colors">GitHub</a>
+                    <a href="#contact" class="hover:text-amber-300 transition-colors">Contact</a>
+                </nav>
+                <button id="mobile-menu-button" class="md:hidden text-2xl text-white"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-black/90">
+            <a href="#journey" class="block py-3 px-6 text-lg hover:bg-gray-900">Journey</a>
+            <a href="#projects" class="block py-3 px-6 text-lg hover:bg-gray-900">Projects</a>
+            <a href="#skills" class="block py-3 px-6 text-lg hover:bg-gray-900">Skills</a>
+            <a href="#github" class="block py-3 px-6 text-lg hover:bg-gray-900">GitHub</a>
+            <a href="#contact" class="block py-3 px-6 text-lg hover:bg-gray-900">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="relative min-h-screen flex items-center justify-center text-center overflow-hidden pt-24">
+            <div id="hero-mandala"></div>
+            <div id="peacock-feather"></div>
+            <div class="z-10 px-6">
+                <h1 class="text-6xl md:text-8xl font-heading font-bold leading-tight text-white">Girish Lade</h1>
+                <p class="text-2xl md:text-3xl font-light text-amber-400 mb-8" style="text-shadow: 0 0 8px var(--accent-glow);">Developer, Designer & AI Innovator</p>
+                <p class="max-w-3xl mx-auto text-lg text-gray-300">Crafting intelligent, user-centric tools with a blend of modern technology and timeless design principles.</p>
+            </div>
+        </section>
+        
+        <!-- Divider -->
+        <div class="section-divider">
+            <svg viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0,10 Q25,0 50,10 T100,10" fill="none" stroke="var(--accent-peacock)" stroke-width="1.5"/></svg>
+        </div>
+
+        <!-- My Journey (Timeline) -->
+        <section id="journey" class="py-24">
+            <div class="container mx-auto px-6 reveal">
+                <h2 class="section-title">My Journey</h2>
+                <div class="timeline">
+                    <div class="timeline-container left"><div class="timeline-content"><h3 class="text-xl font-bold text-amber-400">The Spark</h3><p class="text-gray-400 mt-2">My journey began with a deep curiosity for how things work, leading me to the world of code and design. Early projects fueled a passion for building practical, beautiful applications.</p></div></div>
+                    <div class="timeline-container right"><div class="timeline-content"><h3 class="text-xl font-bold text-amber-400">Full-Stack Mastery</h3><p class="text-gray-400 mt-2">I honed my skills across the entire stack, from crafting pixel-perfect UIs with React and Tailwind to building robust backends and databases, always focusing on performance and user experience.</p></div></div>
+                    <div class="timeline-container left"><div class="timeline-content"><h3 class="text-xl font-bold text-amber-400">The AI Frontier</h3><p class="text-gray-400 mt-2">The rise of LLMs opened a new frontier. I dove into AI, learning prompt engineering and integrating models like Gemini to build intelligent tools and agents.</p></div></div>
+                    <div class="timeline-container right"><div class="timeline-content"><h3 class="text-xl font-bold text-amber-400">GBStack & The Future</h3><p class="text-gray-400 mt-2">Today, my focus is on GBStack, a platform to share free, AI-powered tools with the developer community. The journey continues, driven by innovation and the desire to create value.</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="section-divider"><svg viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0,10 C15,20 35,0 50,10 C65,20 85,0 100,10" fill="none" stroke="var(--accent-peacock)" stroke-width="1.5"/></svg></div>
+
+        <!-- Key Projects -->
+        <section id="projects" class="py-24">
+            <div class="container mx-auto px-6 reveal">
+                <h2 class="section-title">Creations & Innovations</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card jharokha p-6 flex flex-col"><h3 class="text-2xl font-bold mb-2 text-amber-400">GBStack AI Dev Tools</h3><p class="text-gray-400 mb-4 flex-grow">An AI-integrated platform offering free, powerful tools for developers.</p><div class="flex flex-wrap gap-2 mt-auto"><span class="tag">AI</span><span class="tag">Dev Tools</span></div></div>
+                    <div class="card jharokha p-6 flex flex-col"><h3 class="text-2xl font-bold mb-2 text-amber-400">Multi-LLM AI Agent</h3><p class="text-gray-400 mb-4 flex-grow">A custom AI agent leveraging models like DeepSeek, Mistral, and Gemini.</p><div class="flex flex-wrap gap-2 mt-auto"><span class="tag">AI Agents</span><span class="tag">LLM</span></div></div>
+                    <div class="card jharokha p-6 flex flex-col"><h3 class="text-2xl font-bold mb-2 text-amber-400">AI Website Builder</h3><p class="text-gray-400 mb-4 flex-grow">Features a dual editor/preview, live code streaming, and prompt history.</p><div class="flex flex-wrap gap-2 mt-auto"><span class="tag">Web Dev</span><span class="tag">AI Tools</span></div></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Divider -->
+        <div class="section-divider"><svg viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0,10 Q25,20 50,10 T100,10" fill="none" stroke="var(--accent-peacock)" stroke-width="1.5"/></svg></div>
+
+        <!-- Skills & Tech Stack -->
+        <section id="skills" class="py-24">
+            <div class="container mx-auto px-6 reveal">
+                <h2 class="section-title">My Toolkit</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card p-8 text-center"><i class="fas fa-drafting-compass text-4xl text-amber-400 mb-4" style="text-shadow: 0 0 10px var(--accent-glow);"></i><h3 class="text-2xl font-bold mb-3 text-white">Design & UX</h3><ul class="text-gray-400 space-y-2"><li>UI/UX & Visual Design</li><li>Figma & Adobe Suite</li><li>Responsive & Fluid Layouts</li><li>User-Centric Prototyping</li></ul></div>
+                    <div class="card p-8 text-center"><i class="fas fa-code text-4xl text-amber-400 mb-4" style="text-shadow: 0 0 10px var(--accent-glow);"></i><h3 class="text-2xl font-bold mb-3 text-white">Development</h3><ul class="text-gray-400 space-y-2"><li>HTML, CSS, JavaScript</li><li>React, Next.js, Tailwind</li><li>Full-Stack Architecture</li><li>Firebase & Vercel</li></ul></div>
+                    <div class="card p-8 text-center"><i class="fas fa-robot text-4xl text-amber-400 mb-4" style="text-shadow: 0 0 10px var(--accent-glow);"></i><h3 class="text-2xl font-bold mb-3 text-white">AI & Data</h3><ul class="text-gray-400 space-y-2"><li>Gemini & OpenAI APIs</li><li>Prompt Engineering</li><li>AI Agent Crafting</li><li>Data Science Principles</li></ul></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Divider -->
+        <div class="section-divider"><svg viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0,10 C15,0 35,20 50,10 C65,0 85,20 100,10" fill="none" stroke="var(--accent-peacock)" stroke-width="1.5"/></svg></div>
+
+        <!-- GitHub Projects -->
+        <section id="github" class="py-24">
+            <div class="container mx-auto px-6 reveal">
+                <h2 class="section-title">Code & Contributions</h2>
+                <div id="github-repos" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"><p id="loader" class="text-center col-span-full text-gray-400">Summoning projects from the digital ether...</p></div>
+                 <div class="text-center mt-12"><a href="https://github.com/girishlade111" target="_blank" rel="noopener noreferrer" class="glow-button font-bold text-lg px-8 py-4 rounded-lg">Explore All on GitHub</a></div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="py-24">
+            <div class="container mx-auto px-6 text-center reveal">
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="max-w-2xl mx-auto text-lg text-gray-300 mb-8">Have a project, an idea, or just want to talk tech? I'm always open to new conversations and collaborations.</p>
+                <a href="mailto:girishlade111@gmail.com" class="glow-button inline-block font-bold text-xl px-10 py-5 rounded-lg">Send a Message</a>
+                <div class="flex justify-center space-x-8 mt-16">
+                    <a href="https://www.instagram.com/girish_lade_/" target="_blank" class="text-4xl text-gray-500 social-icon transition-all duration-300"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/girish-lade-075bba201/" target="_blank" class="text-4xl text-gray-500 social-icon transition-all duration-300"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/girishlade111" target="_blank" class="text-4xl text-gray-500 social-icon transition-all duration-300"><i class="fab fa-github"></i></a>
+                    <a href="https://codepen.io/Girish-Lade-the-looper" target="_blank" class="text-4xl text-gray-500 social-icon transition-all duration-300"><i class="fab fa-codepen"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-900/50">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-600">
+            <svg id="footer-lotus" class="h-8 w-8 mx-auto mb-4 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0L12 2.69z"></path><path d="M12 12a4.5 4.5 0 0 0 4.5 4.5"></path></svg>
+            <p>Designed & Built by Girish Lade &copy; <span id="year"></span></p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        document.querySelectorAll('#mobile-menu a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+        // --- Dynamic Year ---
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // --- Rangoli Cursor Effect ---
+        const canvas = document.getElementById('rangoli-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        let particles = [];
+        const cursor = { x: canvas.width / 2, y: canvas.height / 2 };
+        const customCursor = document.querySelector('.custom-cursor');
+
+        const colors = ['#FFD700', '#FF9933', '#16a085', '#E74C3C', '#8E44AD'];
+
+        window.addEventListener('mousemove', (e) => {
+            cursor.x = e.clientX;
+            cursor.y = e.clientY;
+            customCursor.style.transform = `translate3d(${e.clientX - 10}px, ${e.clientY - 10}px, 0)`;
+        });
+
+        function addParticle() {
+            if (particles.length < 100) {
+                particles.push({
+                    x: cursor.x,
+                    y: cursor.y,
+                    size: Math.random() * 3 + 1,
+                    life: 1,
+                    color: colors[Math.floor(Math.random() * colors.length)]
+                });
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                let p = particles[i];
+                p.life -= 0.02;
+                if (p.life <= 0) {
+                    particles.splice(i, 1);
+                    i--;
+                    continue;
+                }
+                ctx.globalAlpha = p.life;
+                ctx.fillStyle = p.color;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            requestAnimationFrame(animateParticles);
+        }
+
+        // --- GitHub Repositories Logic ---
+        const fallbackRepos = [
+            { name: "AI-Website-Builder", html_url: "https://github.com/girishlade111", description: "A tool for creating websites with AI, featuring a dual editor/preview and live code streaming.", stargazers_count: 210, forks_count: 45, language: "JavaScript" },
+            { name: "Multi-LLM-AI-Agent", html_url: "https://github.com/girishlade111", description: "An advanced AI agent that intelligently switches between models like Gemini, Mistral, and DeepSeek.", stargazers_count: 180, forks_count: 35, language: "Python" },
+            { name: "GBStack-Dev-Tools", html_url: "https://github.com/girishlade111", description: "A suite of free, AI-enhanced tools for developers, designed for maximum utility and ease of use.", stargazers_count: 300, forks_count: 60, language: "TypeScript" },
+        ];
+
+        function renderRepos(repos) {
+            const repoContainer = document.getElementById('github-repos');
+            const loader = document.getElementById('loader');
+            if (loader) loader.style.display = 'none';
+            repoContainer.innerHTML = '';
+            repos.slice(0, 3).forEach(repo => { // Show only 3 for a cleaner look
+                const repoCardHTML = `
+                    <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="card p-6 block hover:!transform-none">
+                        <div class="flex flex-col h-full">
+                            <h4 class="text-xl font-bold text-amber-400 mb-2">${repo.name}</h4>
+                            <p class="text-gray-400 text-sm mb-4 flex-grow">${repo.description || 'No description available.'}</p>
+                            <div class="flex items-center text-sm text-gray-500 mt-auto">
+                                <span class="flex items-center mr-4"><i class="fas fa-star mr-1.5 text-amber-500"></i> ${repo.stargazers_count}</span>
+                                <span class="flex items-center mr-4"><i class="fas fa-code-branch mr-1.5 text-amber-500"></i> ${repo.forks_count}</span>
+                                ${repo.language ? `<span class="flex items-center"><i class="fas fa-circle mr-1.5 text-xs" style="color:${repo.language === 'JavaScript' ? '#f1e05a' : repo.language === 'Python' ? '#3572A5' : repo.language === 'TypeScript' ? '#3178c6' : '#89e051'}"></i> ${repo.language}</span>` : ''}
+                            </div>
+                        </div>
+                    </a>`;
+                repoContainer.innerHTML += repoCardHTML;
+            });
+        }
+
+        async function fetchGitHubRepos() {
+            const username = 'girishlade111';
+            const url = `https://api.github.com/users/${username}/repos?sort=updated&direction=desc`;
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(`GitHub API error: ${response.status}`);
+                const repos = await response.json();
+                renderRepos(repos);
+            } catch (error) {
+                console.error('Error fetching GitHub repos:', error);
+                renderRepos(fallbackRepos);
+            }
+        }
+
+        // --- Scroll Reveal Animation ---
+        function revealSections() {
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        }
+
+        // --- Initialize ---
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchGitHubRepos();
+            revealSections();
+            setInterval(addParticle, 50);
+            animateParticles();
+            
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        });
+    </script>
+
+</body>
+</html>
